@@ -1,17 +1,14 @@
-name: Test
+name: Wakatime Charts
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
-  test-workflow:
-    name: Test workflow
+  update-charts:
     runs-on: ubuntu-latest
     steps:
       - uses: csiimnida/wakatime-charts@master
